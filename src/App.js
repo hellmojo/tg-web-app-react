@@ -10,7 +10,7 @@ function App() {
     const [textFieldValue, setTextFieldValue] = useState('');
 
     const [dropdownValue, setDropdownValue] = useState('one');
-    const [generatedUrl, setGeneratedUrl] = useState('');
+    const [generatedUrl, setGeneratedUrl] = useState();
 
     const handleSubmit = () => {
         // Составляем URL
@@ -22,10 +22,10 @@ function App() {
     return (
         <div className="App">
             <h1>Мое Telegram Web App</h1>
-            <form onSubmit={handleSubmit}>
+            <form>
                 <div>
                     <label>Текстовое поле:</label>
-                    <inputпочемупочему
+                    <input
                         type="text"
                         value={textFieldValue}
                         onChange={(e) => setTextFieldValue(e.target.value)}
@@ -42,7 +42,7 @@ function App() {
                         <option value="three">Три</option>
                     </select>
                 </div>
-                <button type="submit">Сгенерировать URL</button>
+                <button type="submit" onClick={handleSubmit}>Сгенерировать URL</button>
             </form>
             {generatedUrl && <p>Сгенерированный URL: {generatedUrl}</p>}
         </div>
